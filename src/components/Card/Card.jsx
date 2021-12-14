@@ -10,25 +10,29 @@ export default function Card({
   title,
   handleClick,
   onToggle,
+  image,
 }) {
   return (
     <div className="card-container">
-      <div className="card">
-        <div className="card-movie">
-          <h2 className="movie-title">{title}</h2>
-        </div>
-        <div className="technos">{category}</div>
+      <div className="card-movie">
+        <img src={image} alt={title} className="card-img" />
       </div>
-      <button
-        type="button"
-        className={likes ? "btn-like" : "btn-dislike"}
-        onClick={onToggle}
-      >
-        {likes ? likes : dislikes}
-      </button>
-      <button type="button" className="btn-delete" onClick={handleClick}>
-        supprimer
-      </button>
+      <div className="movie-infos">
+        <h2 className="movie-title">{title}</h2>
+        <div className="movie-categories">{category}</div>
+        <div className="btn-list">
+          <button
+            type="button"
+            className={likes ? "btn-like" : "btn-dislike"}
+            onClick={onToggle}
+          >
+            {likes ? likes : dislikes}
+          </button>
+          <button type="button" className="btn-delete" onClick={handleClick}>
+            supprimer
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

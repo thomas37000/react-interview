@@ -1,11 +1,13 @@
-import React, { uselikes, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import Select from "react-select";
 import { movies$ } from "../api/movies";
 import Card from "./Card/Card";
 import "./Movies.css";
 
-export default function Movies() {
+export default function Movies({options}) {
   const [moviesList, setMoviesList] = useState([]);
   const [likeMovie, setLikeMovie] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const deleteMovie = (id) => {
     const deleteMoviesList = moviesList.filter((movie) => movie.id !== id);
@@ -14,6 +16,10 @@ export default function Movies() {
 
   const onToggleMovie = () => {
     setLikeMovie(!likeMovie);
+  };
+
+  const SelectGenres = () => {
+    setSelectedOption(selectedOption);
   };
 
   useEffect(() => {
@@ -30,11 +36,12 @@ export default function Movies() {
     moviesList &&
     moviesList.map((movie) => {
       return (
-        <div className="card-movies" key={movie.id}>
+        <div className="container" key={movie.id}>
           <Card
             {...movie}
             handleClick={() => deleteMovie(movie.id)}
             onToggle={() => onToggleMovie()}
+            onChange={SelectGenres}
           />
         </div>
       );
