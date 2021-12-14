@@ -18,7 +18,9 @@ export default function Card({
         </div>
         <div className="technos">{category}</div>
       </div>
-      <button className="btn-delete" onClick={handleClick}>
+      <button type="button" className="btn-like">like {likes}</button>
+      <button type="button" className="btn-dislike">dislike {dislikes}</button>
+      <button type="button" className="btn-delete" onClick={handleClick}>
         supprimer
       </button>
     </div>
