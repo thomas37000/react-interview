@@ -63,6 +63,9 @@ export default function Movies({ options }) {
   return (
     <>
       <div className="movies-container">
+        <div className="select-categories">
+          <Select />
+        </div>
         {fetchMovies}{" "}
         <ReactPaginate
           previousLabel={"Previous"}
