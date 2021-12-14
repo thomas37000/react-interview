@@ -1,7 +1,44 @@
+.movies-container {
+  background-color: lightgray;
+  margin: 1rem;
+  padding: 1rem;
+}
+
 .container {
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px;
-    
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+.paginationBtn {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationBtn a {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  color: #333;
+  cursor: pointer;
+}
+
+.paginationBtn a:hover {
+  color: white;
+  background-color: #333;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #333;
+}
+
+.paginationDisabled a {
+  color: grey;
+  background-color: grey;
 }
