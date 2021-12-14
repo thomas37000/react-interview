@@ -6,6 +6,11 @@ import "./Movies.css";
 export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
 
+  const deleteMovie = (id) => {
+    const deleteMoviesList = moviesList.filter((movie) => movie.id !== id);
+    setMoviesList(deleteMoviesList);
+  };
+
   useEffect(() => {
     const loadJsonMovies = async () => {
       await movies$.then((res) => {
@@ -20,8 +25,8 @@ export default function Movies() {
     moviesList &&
     moviesList.map((movie) => {
       return (
-        <div className="card-movies">
-          <Card key={movie.id} {...movie} />
+        <div className="card-movies" key={movie.id}>
+          <Card {...movie} handleClick={() => deleteMovie(movie.id)} />
         </div>
       );
     });
