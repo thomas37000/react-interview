@@ -12,7 +12,7 @@ export default function Card({
   onToggle,
   image,
   onLike,
-  onDisLike
+  onDisLike,
 }) {
   return (
     <div className="card-container">
@@ -20,9 +20,6 @@ export default function Card({
         <img src={image} alt={title} className="card-img" />
       </div>
       <div className="movie-infos">
-        <h2 className="movie-title">{title}</h2>
-        <div className="movie-categories">{category}</div>
-
         <div className="buttons-likes">
           <button onClick={onLike}>
             <img
@@ -40,11 +37,16 @@ export default function Card({
             />
           </button>
           {dislikes}
+          <button type="button" onClick={handleClick}>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLE8YQ7PcT_pmDkzpV0Y0jEUxUcZQPclY7NgPtRM9xpWQ87qBM2UJajVajidI-FtXinMs&usqp=CAU"
+              alt="delete this movie"
+              className="btn-delete"
+            />
+          </button>
+          <div className="movie-categories">{category}</div>
         </div>
-
-        <button type="button" className="btn-delete" onClick={handleClick}>
-          supprimer
-        </button>
+        <h2 className="movie-title">{title}</h2>
       </div>
     </div>
   );

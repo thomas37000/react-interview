@@ -1,24 +1,21 @@
-.btn-list {
-  display: grid;
+.buttons-likes {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.btn-like {
-  background-color: green;
-}
-
-.btn-dislike {
-  background-color: red;
-}
-
-.like-png, .dislike-png {
+.like-png,
+.dislike-png,
+.btn-delete {
   width: 20px;
 }
 
 .card-container {
   width: 350px;
-  height: 650px;
+  height: 520px;
   background: rgb(50, 55, 50);
-  margin-bottom: 20px;
+  box-shadow: 0 1.5rem 2.5rem rgb(0 0 0 / 50%);
+  border-radius: 20px;
 }
 
 .card-movie {
@@ -27,15 +24,18 @@
 
 .card-img {
   width: 100%;
-  height: 500px;
+  height: 400px;
   object-fit: cover;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 
 .movie-title {
   color: #f1f1f1;
 }
 
-.card-container:hover, .movie-title:hover {
+.card-container:hover,
+.movie-title:hover {
   background: #333;
   color: #000;
 }
