@@ -5,10 +5,10 @@ import { movies$ } from "../api/movies";
 import Card from "./Card/Card";
 import "./Movies.css";
 
-export default function Movies({ options }) {
+export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
   const [likeMovie, setLikeMovie] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("All Genres");
   const [pageNumber, setPageNumber] = useState(0);
 
   const moviePagination = 3;
@@ -60,12 +60,32 @@ export default function Movies({ options }) {
     setPageNumber(selected);
   };
 
+  const categoriesMovies = [
+    ...new Map(
+      moviesList.map((movie) => [movie.category, movie.category])
+    ).values(),
+  ];
+
+  const options = [{ value: "All", label: "All Genres" }];
+
+  categoriesMovies.forEach((category) => {
+    options.push({ value: category, label: category });
+  });
+
   return (
     <>
       <div className="movies-container">
         <div className="select-categories">
-          <Select />
-        </div>
+          <Select
+            data-testid="filter-movies"
+            defaultValue={selectedOption}
+            value={selectedOption}
+            placeholder={selectedOption}
+            onChange={""}
+            options={options}
+            isSearchable
+          />
+        </div> 
         {fetchMovies}{" "}
         <ReactPaginate
           previousLabel={"Previous"}
