@@ -96,7 +96,7 @@ export default function Movies() {
             defaultValue={selectedOption}
             value={selectedOption}
             placeholder={selectedOption}
-            onChange={""}
+            onChange={SelectGenres}
             options={options}
             isSearchable
           />
