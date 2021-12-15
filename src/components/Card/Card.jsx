@@ -5,14 +5,12 @@ import "./Card.css";
 export default function Card({
   category,
   dislikes,
-  id,
   likes,
   title,
   handleClick,
-  onToggle,
   image,
   onLike,
-  onDisLike,
+  onDislike,
 }) {
   return (
     <div className="card-container">
@@ -29,7 +27,7 @@ export default function Card({
             />
           </button>{" "}
           {likes}
-          <button onClick={onDisLike}>
+          <button onClick={onDislike}>
             <img
               className="dislike-png"
               src="https://e7.pngegg.com/pngimages/360/748/png-clipart-facebook-dislike-illustration-social-media-facebook-like-button-facebook-dislike-blue-angle.png"

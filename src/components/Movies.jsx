@@ -7,36 +7,57 @@ import "./Movies.css";
 
 export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
-  const [likeMovie, setLikeMovie] = useState(false);
   const [selectedOption, setSelectedOption] = useState("All Genres");
   const [pageNumber, setPageNumber] = useState(0);
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
 
-  const moviePagination = 3;
-  const pagesVisited = pageNumber * moviePagination;
-
+  /************************ delete movie filter by id ************************/
   const deleteMovie = (id) => {
     const deleteMoviesList = moviesList.filter((movie) => movie.id !== id);
     setMoviesList(deleteMoviesList);
   };
 
-  const onToggleMovie = () => {
-    setLikeMovie(!likeMovie);
-  };
-
+  /************************ toggle button like && dislike ************************/
   const AddOneLike = () => {
     setLike(like + 1);
+    console.log(like);
   };
 
   const AddOneDislike = () => {
     setDislike(dislike + 1);
+    console.log(dislike);
   };
+
+  /************************ pagination ************************/
+  const moviePagination = 3;
+  const pagesVisited = pageNumber * moviePagination;
+
+  const pageCount = Math.ceil(moviesList.length / moviePagination);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
+  /************************ Filter select-categories ************************/
 
   const SelectGenres = () => {
     setSelectedOption(selectedOption);
   };
 
+  const categoriesMovies = [
+    ...new Map(
+      moviesList.map((movie) => [movie.category, movie.category])
+    ).values(),
+  ];
+
+  const options = [{ value: "All", label: "All Genres" }];
+
+  categoriesMovies.forEach((category) => {
+    options.push({ value: category, label: category });
+  });
+
+  /************************ fetch movies list ************************/
   useEffect(() => {
     const loadJsonMovies = async () => {
       await movies$.then((res) => {
@@ -57,7 +78,6 @@ export default function Movies() {
             <Card
               {...movie}
               handleClick={() => deleteMovie(movie.id)}
-              onToggle={() => onToggleMovie()}
               onChange={SelectGenres}
               onLike={() => AddOneLike()}
               onDislike={() => AddOneDislike()}
@@ -66,27 +86,10 @@ export default function Movies() {
         );
       });
 
-  const pageCount = Math.ceil(moviesList.length / moviePagination);
-
-  const changePage = ({ selected }) => {
-    setPageNumber(selected);
-  };
-
-  const categoriesMovies = [
-    ...new Map(
-      moviesList.map((movie) => [movie.category, movie.category])
-    ).values(),
-  ];
-
-  const options = [{ value: "All", label: "All Genres" }];
-
-  categoriesMovies.forEach((category) => {
-    options.push({ value: category, label: category });
-  });
-
   return (
     <>
       <div className="movies-container">
+        {/************************ Filter select-categories ************************/}
         <div className="select-categories">
           <Select
             data-testid="filter-movies"
@@ -98,7 +101,9 @@ export default function Movies() {
             isSearchable
           />
         </div>
-        {fetchMovies}{" "}
+        {/************************ fetch movies list ************************/}
+        {fetchMovies}
+        {/************************ pagination ************************/}
         <ReactPaginate
           previousLabel={"Previous"}
           nextLabel={"Next"}
