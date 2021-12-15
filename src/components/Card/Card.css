@@ -10,6 +10,10 @@
   background-color: red;
 }
 
+.like-png, .dislike-png {
+  width: 20px;
+}
+
 .card-container {
   width: 350px;
   height: 650px;

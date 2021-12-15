@@ -11,6 +11,8 @@ export default function Card({
   handleClick,
   onToggle,
   image,
+  AddOneLike,
+  AddOneDisLike,
 }) {
   return (
     <div className="card-container">
@@ -20,18 +22,29 @@ export default function Card({
       <div className="movie-infos">
         <h2 className="movie-title">{title}</h2>
         <div className="movie-categories">{category}</div>
-        <div className="btn-list">
-          <button
-            type="button"
-            className={likes ? "btn-like" : "btn-dislike"}
-            onClick={onToggle}
-          >
-            {likes ? likes : dislikes}
+
+        <div className="buttons-likes">
+          <button onClick={AddOneLike}>
+            <img
+              className="like-png"
+              src="https://spng.pngfind.com/pngs/s/28-281560_youtube-like-button-transparent-like-youtube-png-png.png"
+              alt="like this movie"
+            />
+          </button>{" "}
+          {likes}
+          <button onClick={AddOneDisLike}>
+            <img
+              className="dislike-png"
+              src="https://e7.pngegg.com/pngimages/360/748/png-clipart-facebook-dislike-illustration-social-media-facebook-like-button-facebook-dislike-blue-angle.png"
+              alt="dislike this movie"
+            />
           </button>
-          <button type="button" className="btn-delete" onClick={handleClick}>
-            supprimer
-          </button>
+          {dislikes}
         </div>
+
+        <button type="button" className="btn-delete" onClick={handleClick}>
+          supprimer
+        </button>
       </div>
     </div>
   );

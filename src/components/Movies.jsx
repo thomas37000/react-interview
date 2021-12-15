@@ -85,7 +85,7 @@ export default function Movies() {
             options={options}
             isSearchable
           />
-        </div> 
+        </div>
         {fetchMovies}{" "}
         <ReactPaginate
           previousLabel={"Previous"}
