@@ -10,6 +10,8 @@ export default function Movies() {
   const [likeMovie, setLikeMovie] = useState(false);
   const [selectedOption, setSelectedOption] = useState("All Genres");
   const [pageNumber, setPageNumber] = useState(0);
+  const [like, setLike] = useState(0);
+  const [dislike, setDislike] = useState(0);
 
   const moviePagination = 3;
   const pagesVisited = pageNumber * moviePagination;
@@ -21,6 +23,14 @@ export default function Movies() {
 
   const onToggleMovie = () => {
     setLikeMovie(!likeMovie);
+  };
+
+  const AddOneLike = () => {
+    setLike(like + 1);
+  };
+
+  const AddOneDislike = () => {
+    setDislike(dislike + 1);
   };
 
   const SelectGenres = () => {
@@ -49,6 +59,8 @@ export default function Movies() {
               handleClick={() => deleteMovie(movie.id)}
               onToggle={() => onToggleMovie()}
               onChange={SelectGenres}
+              onLike={() => AddOneLike()}
+              onDislike={() => AddOneDislike()}
             />
           </div>
         );
