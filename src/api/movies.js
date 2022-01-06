@@ -10,17 +10,17 @@ const movies = [
   },
   {
     id: "2",
-    title: "Midnight Sun",
+    title: "Forest Gump",
     category: "Comedy",
-    likes: 2,
+    likes: 23,
     dislikes: 0,
-    image: "https://fr.web.img3.acsta.net/pictures/18/05/04/13/15/4943524.jpg",
+    image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT0NxVrYdi8Ro5zRnIbewaT_uCOl5_2uhxxyQoU6s9gOfEDovGi",
   },
   {
     id: "3",
     title: "Les indestructibles 2",
     category: "Animation",
-    likes: 3,
+    likes: 13,
     dislikes: 1,
     image: "https://fr.web.img6.acsta.net/pictures/18/04/13/15/09/0323902.jpg",
   },
@@ -51,17 +51,17 @@ const movies = [
   },
   {
     id: "7",
-    title: "Pulp Fiction",
-    category: "Thriller",
-    likes: 12333,
-    dislikes: 32,
-    image: "https://static.posters.cz/image/1300/affiches-et-posters/pulp-fiction-cover-i1288.jpg"
+    title: "Full Metal Jacket",
+    category: "War",
+    likes: 33,
+    dislikes: 2,
+    image: "https://fr.web.img5.acsta.net/medias/nmedia/18/65/57/12/19254508.jpg"
   },
   {
     id: "8",
     title: "Seven",
     category: "Thriller",
-    likes: 2,
+    likes: 28,
     dislikes: 1,
     image:'https://m.media-amazon.com/images/M/MV5BOTUwODM5MTctZjczMi00OTk4LTg3NWUtNmVhMTAzNTNjYjcyXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg'
   },
@@ -69,8 +69,8 @@ const movies = [
     id: "9",
     title: "Inception",
     category: "Thriller",
-    likes: 2,
-    dislikes: 1,
+    likes: 22,
+    dislikes: 3,
     image:"https://fr.web.img2.acsta.net/medias/nmedia/18/72/34/14/19476654.jpg"
   },
   {
