@@ -8,12 +8,16 @@ import { applyMiddleware, createStore } from "redux";
 // est accesible à l'utilisateur & développeur qui à la même extension
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
+import rootReducer from "./reducers";
+import { getPosts } from "./actions/postAction";
 
 // eslint-disable-next-line no-undef
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
+
+store.dispatch(getPosts());
 
 ReactDOM.render(
   <Provider store={store}>

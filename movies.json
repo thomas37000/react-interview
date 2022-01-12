@@ -80,5 +80,13 @@
       "dislikes": 12,
       "image": "https://fr.web.img3.acsta.net/c_310_420/pictures/14/09/11/17/05/508784.jpg"
     }
+  ],
+  "users": [
+    {
+      "pseudo": "user44",
+      "likes": 19,
+      "dislikes": 22,
+      "id": 1
+    }
   ]
 }

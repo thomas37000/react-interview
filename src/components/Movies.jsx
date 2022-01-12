@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
+import { useSelector } from "react-redux";
 import ReactPaginate from "react-paginate";
 import { movies$ } from "../api/movies";
 import Card from "./Card/Card";
 import "./Movies.css";
+import { isEmpty } from "./utils";
 
 export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
@@ -11,6 +13,8 @@ export default function Movies() {
   const [pageNumber, setPageNumber] = useState(0);
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
+  const allMovies = useSelector((state) => state.moviesReducer);
+  console.log("redux", allMovies);
 
   /************************ delete movie filter by id ************************/
   const deleteMovie = (id) => {
@@ -69,8 +73,8 @@ export default function Movies() {
   }, []);
 
   const fetchMovies =
-    moviesList &&
-    moviesList
+    !isEmpty(allMovies) &&
+    allMovies
       .slice(pagesVisited, pagesVisited + moviePagination)
       .map((movie) => {
         return (
