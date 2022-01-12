@@ -1,6 +1,6 @@
 import { GET_USER } from "../actions/userAction";
 
-const initialState = { stateTest: "Hello" };
+const initialState = {};
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {

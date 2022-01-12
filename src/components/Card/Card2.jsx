@@ -74,8 +74,6 @@ export default function Card({
 
 Card.propTypes = {
   category: PropTypes.string.isRequired,
-  comment: PropTypes.string.isRequired,
-  commentUser: PropTypes.string.isRequired,
   dislikes: PropTypes.number.isRequired,
   likes: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,

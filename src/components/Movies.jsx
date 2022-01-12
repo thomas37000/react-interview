@@ -14,6 +14,9 @@ export default function Movies() {
   const [pageNumber, setPageNumber] = useState(0);
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
+
+  /************************ Redux ************************/
+
   const allMovies = useSelector((state) => state.moviesReducer);
   console.log("redux", allMovies);
 
