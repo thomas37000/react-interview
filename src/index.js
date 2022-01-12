@@ -10,6 +10,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 import { getPosts } from "./actions/postAction";
+import { getUsers } from "./actions/userAction";
 
 // eslint-disable-next-line no-undef
 const store = createStore(
@@ -18,6 +19,7 @@ const store = createStore(
 );
 
 store.dispatch(getPosts());
+store.dispatch(getUsers());
 
 ReactDOM.render(
   <Provider store={store}>

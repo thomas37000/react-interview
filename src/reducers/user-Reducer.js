@@ -1,5 +1,12 @@
+import { GET_USER } from "../actions/userAction";
+
 const initialState = { stateTest: "Hello" };
 
 export default function userReducer(state = initialState, action) {
-  return initialState;
+  switch (action.type) {
+    case GET_USER:
+      return action.payload;
+    default:
+      return state;
+  }
 }

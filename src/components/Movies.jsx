@@ -6,6 +6,7 @@ import { movies$ } from "../api/movies";
 import Card from "./Card/Card";
 import "./Movies.css";
 import { isEmpty } from "./utils";
+import Form from "./Form";
 
 export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
@@ -65,7 +66,7 @@ export default function Movies() {
   useEffect(() => {
     const loadJsonMovies = async () => {
       await movies$.then((res) => {
-        console.log("movies list", res);
+        // console.log("movies list", res);
         setMoviesList(res);
       });
     };
@@ -76,9 +77,9 @@ export default function Movies() {
     !isEmpty(allMovies) &&
     allMovies
       .slice(pagesVisited, pagesVisited + moviePagination)
-      .map((movie) => {
+      .map((movie, index) => {
         return (
-          <div className="container" key={movie.id}>
+          <div className="container" key={index}>
             <Card
               {...movie}
               handleClick={() => deleteMovie(movie.id)}
@@ -93,6 +94,7 @@ export default function Movies() {
   return (
     <>
       <div className="movies-container">
+        <Form />
         {/************************ Filter select-categories ************************/}
         <div className="select-categories">
           <Select
