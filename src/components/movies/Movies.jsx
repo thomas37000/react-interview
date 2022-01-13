@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { useSelector } from "react-redux";
 import ReactPaginate from "react-paginate";
-import { movies$ } from "../api/movies";
-import Card from "./Card/Card";
+import { movies$ } from "../../api/movies";
+import Card from "../Card/Card";
+import { isEmpty } from "../utils";
+import Form from "../Form/Form.jsx";
 import "./Movies.css";
-import { isEmpty } from "./utils";
-import Form from "./Form";
 
 export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
@@ -14,9 +14,9 @@ export default function Movies() {
   const [pageNumber, setPageNumber] = useState(0);
   const [like, setLike] = useState(0);
   const [dislike, setDislike] = useState(0);
+  const [editToggle, setEditToggle] = useState(false);
 
   /************************ Redux ************************/
-
   const allMovies = useSelector((state) => state.moviesReducer);
   console.log("redux", allMovies);
 
@@ -40,8 +40,7 @@ export default function Movies() {
   /************************ pagination ************************/
   const moviePagination = 3;
   const pagesVisited = pageNumber * moviePagination;
-
-  const pageCount = Math.ceil(moviesList.length / moviePagination);
+  const pageCount = Math.ceil(allMovies.length / moviePagination);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
@@ -89,6 +88,7 @@ export default function Movies() {
               onChange={SelectGenres}
               onLike={() => AddOneLike()}
               onDislike={() => AddOneDislike()}
+              editToggle={editToggle}
             />
           </div>
         );
@@ -99,7 +99,7 @@ export default function Movies() {
       <div className="movies-container">
         <Form />
         {/************************ Filter select-categories ************************/}
-        <div className="select-categories">
+        {/* <div className="select-categories">
           <Select
             data-testid="filter-movies"
             defaultValue={selectedOption}
@@ -109,7 +109,7 @@ export default function Movies() {
             options={options}
             isSearchable
           />
-        </div>
+        </div> */}
         {/************************ fetch movies list ************************/}
         {fetchMovies}
         {/************************ pagination ************************/}

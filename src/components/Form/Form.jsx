@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addMovie, getPosts } from "../actions/postAction";
+import { addMovie, getPosts } from "../../actions/postAction";
+import "./Form.css";
 
 const Form = () => {
   const [title, setTitle] = useState("");
@@ -28,7 +29,8 @@ const Form = () => {
 
   return (
     <div className="form-container">
-      <form onSubmit={(e) => handleForm(e)}>
+      <form onSubmit={(e) => handleForm(e)} className="formulaire">
+        Ajouter un film
         <input
           type="text"
           placeholder="Titre du Film"

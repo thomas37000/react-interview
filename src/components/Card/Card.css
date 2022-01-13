@@ -4,11 +4,17 @@
   align-items: center;
 }
 
-.like-png,
-.dislike-png,
-.btn-delete {
-  width: 20px;
-}
+/* .buttons-likes button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+} */
+
+/* .like path,
+.dislike path,
+.btn-delete path {
+  fill: #f1f1f1;
+} */
 
 .card-container {
   width: 350px;
@@ -23,7 +29,7 @@
 
 .card-img {
   width: 100%;
-  height: 400px;
+  height: 500px;
   object-fit: cover;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
@@ -36,5 +42,27 @@
 .card-container:hover,
 .movie-title:hover {
   background: #333;
+}
+
+.card-comment {
+  background-color: #4682b4;
   color: #000;
+}
+
+.critique {
+  margin-bottom: -1rem;
+}
+
+.comments {
+  font-size: small;
+  padding: 10px;
+}
+
+.author {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: -2rem;
 }
